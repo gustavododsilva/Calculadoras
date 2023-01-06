@@ -1,0 +1,55 @@
+# importando tkinter
+
+from tkinter import *
+
+
+# cores
+
+cor1= "#f3f58c"  #amarelo claro
+cor2= "#f71b07"  #vermelho
+cor3= "#030303"  #preto
+
+
+# janela
+
+app=Tk()
+app.title("Adivinhe a senha")
+app.geometry("400x310")
+app.configure(background=cor1)
+
+
+
+# criando funcao
+
+def senha_correta():
+
+    
+    valor=int(vnumero.get())
+
+    senha= 15
+
+    if valor == senha:
+        l_resposta['text'] = "Você acertou!"
+    elif valor > 15:
+        l_resposta['text'] = "É um número menor!"
+    elif valor < 15:
+        l_resposta['text'] = "É um número maior!"
+
+
+
+# criando label
+
+lb1=Label(app,text="Digite um número", background=cor1, foreground=cor2, font='arial 20', anchor=W).place(x=90, y=70, width=230, height=50)
+vnumero=Entry(app)
+vnumero.place(x=90,y=130,width=220,height=30)
+
+l_resposta=Label(app, text= ' ', bg=cor1, font= 'arial 15', foreground=cor3)
+l_resposta.place(x=110, y=220)
+
+
+# botao
+
+Button(app, text="Entrar", font='arial 10', command=senha_correta).place(x=160, y=170, width=80, height=20)
+
+
+app.mainloop()
